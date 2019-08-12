@@ -15,14 +15,16 @@
 # shar		build a shippable shar archive
 
 SHELL=/bin/sh
+MAKE=make -fMakefile.wasm
+EMCC=emcc
 
-build: 
+build:
 	cd src && $(MAKE)
 
 results: FRC
 	cd src && $(MAKE) results
 
-rerun: 
+rerun:
 	cd src && $(MAKE) rerun
 
 see:
@@ -34,22 +36,22 @@ doc.lpr:
 doc.x:
 	cd doc && $(MAKE) x
 
-clobber clean: 
+clobber clean:
 	for i in doc src results scripts; do \
 		echo ===== $$i =====; \
 		(cd $$i && $(MAKE) clean); \
 	done
 	/bin/rm -rf bin/*
-	-bk clean 
+	-bk clean
 
-get: 
+get:
 	for i in doc src results scripts; do \
 		echo ===== $$i =====; \
 		(cd $$i && bk get -q); \
 	done
 	@co -q
 
-info: 
+info:
 	for i in doc src results scripts; do \
 		echo ===== $$i =====; \
 		(cd $$i && info); \
@@ -68,6 +70,6 @@ shar:
 	$(MAKE) get
 	cd .. && \
 	find lmbench -type f -print  | egrep -v 'noship|RCS' > /tmp/FILES
-	cd .. && shar -S -a -n lmbench1.0 -L 50K < /tmp/FILES 
+	cd .. && shar -S -a -n lmbench1.0 -L 50K < /tmp/FILES
 
 FRC:

@@ -17,4 +17,5 @@ then	OS=bloat-os
     then	OS=`../../scripts/gnu-os | sed s/unknown-//`
     fi
 fi
+OS="wasm"
 echo $OS

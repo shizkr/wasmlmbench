@@ -18,7 +18,8 @@ flushdisk(int fd)
 	usleep(100000);
 	return (ret);
 }
-
+#else
+#include <stdlib.h>
 #endif
 
 #ifdef	MAIN

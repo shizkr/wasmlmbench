@@ -13,4 +13,5 @@ then	CC=cc
 		fi
 	done
 fi
+CC=emcc
 echo $CC

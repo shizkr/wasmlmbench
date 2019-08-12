@@ -326,5 +326,6 @@ extern void lmbench_usage(int argc, char *argv[], char* usage);
 #define RPC_EXIT ((u_long)2)
 extern char *rpc_xact_1();
 extern char *client_rpc_xact_1();
+extern void lmbench_usage(int argc, char *argv[], char* usage);
 
 #endif /* _BENCH_H */

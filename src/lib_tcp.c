@@ -17,6 +17,7 @@
 int
 tcp_server(int prog, int rdwr)
 {
+#if 0
 	int	sock;
 	struct	sockaddr_in s;
 
@@ -53,6 +54,8 @@ tcp_server(int prog, int rdwr)
 		}
 	}
 	return (sock);
+#endif //if 0
+	return 0;
 }
 
 /*
@@ -61,9 +64,11 @@ tcp_server(int prog, int rdwr)
 int
 tcp_done(int prog)
 {
+#if 0
 	if (prog > 0) {
 		pmap_unset((u_long)prog, (u_long)1);
 	}
+#endif
 	return (0);
 }
 
@@ -104,6 +109,7 @@ retry:
 int
 tcp_connect(char *host, int prog, int rdwr)
 {
+#if 0
 	static	struct hostent *h;
 	static	struct sockaddr_in s;
 	static	u_short	save_port;
@@ -187,6 +193,8 @@ tcp_connect(char *host, int prog, int rdwr)
 	}
 	tries = 0;
 	return (sock);
+#endif
+	return 0;
 }
 
 void
