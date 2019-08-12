@@ -19,8 +19,10 @@ typedef unsigned char bool_t;
 #include        <fcntl.h>
 #include        <signal.h>
 #include        <errno.h>
+#include	<math.h>
 #ifndef WIN32
 #include        <strings.h>
+#include        <string.h>
 #endif
 #include        <sys/types.h>
 #ifndef WIN32
@@ -35,9 +37,13 @@ typedef unsigned char bool_t;
 #include        <sys/un.h>
 #include        <sys/resource.h>
 #define PORTMAP
+#ifndef NORPC
 #include	<rpc/rpc.h>
 #endif
+#endif
+#ifndef NORPC
 #include	<rpc/types.h>
+#endif
 
 #include 	<stdarg.h>
 #ifndef HAVE_uint
@@ -297,6 +303,7 @@ extern void sigchld_wait_handler(int signo);
  */
 extern int handle_scheduler(int childno, int benchproc, int nbenchprocs);
 
+extern void lmbench_usage(int argc, char *argv[], char* usage);
 #include	"lib_mem.h"
 
 /*
